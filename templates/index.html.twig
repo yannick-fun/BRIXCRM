@@ -1,0 +1,35 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Index{% endblock %}
+
+{% block body %}
+    <h1>Subscribers List</h1>
+    <table class="table">
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Phone number</th>
+            <th>First name</th>
+            <th>Last name</th>
+            <th>Activate Sim</th>
+        </tr>
+        </thead>
+        <tbody>
+        {% for subscription in subscriptions %}
+            <tr>
+                <td>{{ subscription.id }}</td>
+                <td>{{ subscription.first_name }}</td>
+                <td>{{ subscription.last_name }}</td>
+                <td>{{ subscription.phone_number }}</td>
+                <td>
+                    <a href="{{ path('sim', {'subscription_id': subscription.id}) }}">Activate</a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="5">No records...</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

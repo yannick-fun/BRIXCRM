@@ -1,0 +1,11 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Activate sim card{% endblock %}
+
+{% block body %}
+    <h1>Activate sim card?</h1>
+
+    <h1>{{ allowed ? 'True: Yes it can!' : 'False: No not now...'}}</h1>
+
+    <a href="{{ path('index') }}">Back</a>
+{% endblock %}
